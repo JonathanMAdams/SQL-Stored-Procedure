@@ -31,12 +31,7 @@ CREATE PROCEDURE GetCORCSurveys @StartDate datetime, @EndDate datetime AS
 		([In-Person] + [Remote]) AS Specimens,
 		([Baseline] + [Follow-Up]) AS Surveys
 	FROM #YearMonthDisplay
-	WHERE CollectionYearMonth NOT LIKE '2020-01' 
-	OR CollectionYearMonth NOT LIKE '2023-08' 
-	OR CollectionYearMonth NOT LIKE '2023-09'
-	OR CollectionYearMonth NOT LIKE '2023-10'
-	OR CollectionYearMonth NOT LIKE '2023-11'
-	OR CollectionYearMonth NOT LIKE '2023-12'),
+	WHERE CollectionYearMonth NOT LIKE '2020-01'),
 
 	JoinedTable AS (SELECT SummaryTableA.CollectionMonthEnd, SummaryTableA.Specimens, SummaryTableB.Surveys
 	FROM SummaryTable AS SummaryTableA
